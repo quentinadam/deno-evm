@@ -5,7 +5,7 @@
     "jsr:@noble/secp256k1@3": "3.0.0",
     "jsr:@quentinadam/assert@~0.1.17": "0.1.17",
     "jsr:@quentinadam/ensure@~0.1.5": "0.1.5",
-    "jsr:@quentinadam/evm-base@~0.1.2": "0.1.2",
+    "jsr:@quentinadam/evm-base@~0.1.3": "0.1.3",
     "jsr:@quentinadam/hash@~0.1.12": "0.1.12",
     "jsr:@quentinadam/rlp@0.1": "0.1.0",
     "jsr:@quentinadam/secp256k1@~0.1.3": "0.1.3",
@@ -29,8 +29,8 @@
         "jsr:@quentinadam/assert"
       ]
     },
-    "@quentinadam/evm-base@0.1.2": {
-      "integrity": "263bc1663debd7669fa7c5e7f3c800e8abf6ff148854ff70f9a2ea42331b31c7",
+    "@quentinadam/evm-base@0.1.3": {
+      "integrity": "117db30b26d257d9ded44852dfab2ca430febcceefeeec0575e58dd3df0050b7",
       "dependencies": [
         "jsr:@quentinadam/assert",
         "jsr:@quentinadam/ensure",
@@ -86,7 +86,7 @@
     "dependencies": [
       "jsr:@quentinadam/assert@~0.1.17",
       "jsr:@quentinadam/ensure@~0.1.5",
-      "jsr:@quentinadam/evm-base@~0.1.2",
+      "jsr:@quentinadam/evm-base@~0.1.3",
       "jsr:@quentinadam/hash@~0.1.12",
       "jsr:@quentinadam/rlp@0.1",
       "jsr:@quentinadam/secp256k1@~0.1.3",

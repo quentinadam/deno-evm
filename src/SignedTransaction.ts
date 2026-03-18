@@ -1,9 +1,8 @@
 import { concat } from '@quentinadam/uint8array-extension';
 import * as rlp from '@quentinadam/rlp';
 import keccak256 from '@quentinadam/hash/keccak256';
-import { createInspectableDataWrapper } from '@quentinadam/evm-base';
+import { createInspectableDataWrapper, createInspectableScaledBigIntWrapper } from '@quentinadam/evm-base';
 import bytesFromAddress from './bytesFromAddress.ts';
-import createScaledBigIntWrapper from './createScaledBigIntWrapper.ts';
 import type { InspectFn } from './inspect.ts';
 
 export default class SignedTransaction {
@@ -119,11 +118,11 @@ export default class SignedTransaction {
         }) {
           this.chainId = chainId;
           this.nonce = nonce;
-          this.priorityFeePerGas = createScaledBigIntWrapper(priorityFeePerGas, 9);
-          this.maxFeePerGas = createScaledBigIntWrapper(maxFeePerGas, 9);
+          this.priorityFeePerGas = createInspectableScaledBigIntWrapper(priorityFeePerGas, 9);
+          this.maxFeePerGas = createInspectableScaledBigIntWrapper(maxFeePerGas, 9);
           this.gasLimit = gasLimit;
           this.to = to;
-          this.value = createScaledBigIntWrapper(value, 18);
+          this.value = createInspectableScaledBigIntWrapper(value, 18);
           this.data = createInspectableDataWrapper(data);
           this.v = v;
           this.r = `0x${r.toString(16)}`;
