@@ -25,7 +25,7 @@ export default class Client extends BaseClient {
   > {
     const response = await this.request({
       method: 'eth_feeHistory',
-      params: [blockCount, 'latest', priorityFeePerGasPercentiles ?? []],
+      params: [`0x${blockCount.toString(16)}`, 'latest', priorityFeePerGasPercentiles ?? []],
     });
     return z.object({
       oldestBlock: this.#helper.HexNumberSchema,
