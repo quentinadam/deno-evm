@@ -6,14 +6,14 @@ import bytesFromAddress from './bytesFromAddress.ts';
 export default class Client extends BaseClient {
   readonly #helper;
 
-  constructor(url: string) {
+  constructor(url: string, { logger }: { logger?: { log: (...args: unknown[]) => void } } = {}) {
     const helper = new ClientHelper({
       addressFromBytes,
       bytesFromAddress,
       serializeHash: (hash) => hash,
       deserializeHash: (hash) => hash,
     });
-    super(url, helper);
+    super(url, { helper, logger });
     this.#helper = helper;
   }
 
