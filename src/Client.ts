@@ -25,7 +25,7 @@ export default class Client extends BaseClient {
   > {
     const response = await this.request({
       method: 'eth_feeHistory',
-      params: [`0x${blockCount.toString(16)}`, 'latest', priorityFeePerGasPercentiles ?? []],
+      params: [this.#helper.serializeInteger(blockCount), 'latest', priorityFeePerGasPercentiles ?? []],
     });
     return z.object({
       oldestBlock: this.#helper.HexNumberSchema,
@@ -40,8 +40,14 @@ export default class Client extends BaseClient {
     })).parse(response);
   }
 
-  async sendRawTransaction(bytes: Uint8Array): Promise<string> {
-    const result = await this.request({ method: 'eth_sendRawTransaction', params: ['0x' + bytes.toHex()] });
+  async sendRawTransaction(bytes: Uint8Array | string): Promise<string> {
+    if (typeof bytes === 'string') {
+      bytes = this.#helper.deserializeBytes(bytes);
+    }
+    const result = await this.request({
+      method: 'eth_sendRawTransaction',
+      params: [this.#helper.serializeBytes(bytes)],
+    });
     return this.#helper.HashSchema.parse(result);
   }
 
