@@ -1,4 +1,4 @@
-import assert from '@quentinadam/assert';
+import { assert } from '@quentinadam/assert';
 
 export function bytesFromAddress(address: string): Uint8Array<ArrayBuffer> {
   assert(address.length === 42);

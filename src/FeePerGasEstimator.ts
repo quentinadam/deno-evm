@@ -1,4 +1,4 @@
-import ensure from '@quentinadam/ensure';
+import { ensure } from '@quentinadam/ensure';
 import type { Client } from './Client.ts';
 
 export class FeePerGasEstimator {
