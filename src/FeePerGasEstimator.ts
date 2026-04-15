@@ -1,7 +1,7 @@
 import ensure from '@quentinadam/ensure';
-import type Client from './Client.ts';
+import type { Client } from './Client.ts';
 
-export default class FeePerGasEstimator {
+export class FeePerGasEstimator {
   readonly #client;
   readonly #blockCount;
   readonly #minimumPriorityFeePerGas;

@@ -2,12 +2,12 @@ import { keccak256 } from '@quentinadam/hash/keccak256';
 import { concat } from '@quentinadam/uint8array-extension';
 import * as rlp from '@quentinadam/rlp';
 import { createInspectableDataWrapper, createInspectableScaledBigIntWrapper } from '@quentinadam/evm-base';
-import bytesFromAddress from './bytesFromAddress.ts';
-import SignedTransaction from './SignedTransaction.ts';
-import type PrivateKey from './PrivateKey.ts';
+import { bytesFromAddress } from './bytesFromAddress.ts';
+import { SignedTransaction } from './SignedTransaction.ts';
+import type { PrivateKey } from './PrivateKey.ts';
 import type { InspectFn } from './inspect.ts';
 
-export default class Transaction {
+export class Transaction {
   readonly chainId: number;
   readonly nonce: number;
   readonly gasLimit: number;

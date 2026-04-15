@@ -1,9 +1,9 @@
 import * as z from '@quentinadam/zod';
 import { Client as BaseClient, ClientHelper } from '@quentinadam/evm-base';
-import addressFromBytes from './addressFromBytes.ts';
-import bytesFromAddress from './bytesFromAddress.ts';
+import { addressFromBytes } from './addressFromBytes.ts';
+import { bytesFromAddress } from './bytesFromAddress.ts';
 
-export default class Client extends BaseClient {
+export class Client extends BaseClient {
   readonly #helper;
 
   constructor(url: string, { logger }: { logger?: { log: (...args: unknown[]) => void } } = {}) {

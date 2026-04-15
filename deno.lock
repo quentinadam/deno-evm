@@ -36,6 +36,7 @@
         "jsr:@quentinadam/ensure",
         "jsr:@quentinadam/hash",
         "jsr:@quentinadam/rlp",
+        "jsr:@quentinadam/secp256k1",
         "jsr:@quentinadam/uint8array-extension",
         "jsr:@quentinadam/zod"
       ]
