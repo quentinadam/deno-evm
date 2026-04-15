@@ -1,4 +1,4 @@
-import keccak256 from '@quentinadam/hash/keccak256';
+import { keccak256 } from '@quentinadam/hash/keccak256';
 import { concat } from '@quentinadam/uint8array-extension';
 import * as rlp from '@quentinadam/rlp';
 import { createInspectableDataWrapper, createInspectableScaledBigIntWrapper } from '@quentinadam/evm-base';

@@ -1,4 +1,4 @@
-import keccak256 from '@quentinadam/hash/keccak256';
+import { keccak256 } from '@quentinadam/hash/keccak256';
 import assert from '@quentinadam/assert';
 import ensure from '@quentinadam/ensure';
 
