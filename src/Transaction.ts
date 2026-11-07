@@ -1,10 +1,14 @@
 import { keccak256 } from '@quentinadam/hash/keccak256';
 import { concat } from '@quentinadam/uint8array-extension';
 import * as rlp from '@quentinadam/rlp';
-import { createInspectableDataWrapper, createInspectableScaledBigIntWrapper } from '@quentinadam/evm-base';
+import {
+  createInspectableDataWrapper,
+  createInspectableScaledBigIntWrapper,
+  signDigest,
+  type Signer,
+} from '@quentinadam/evm-base';
 import { bytesFromAddress } from './bytesFromAddress.ts';
 import { SignedTransaction } from './SignedTransaction.ts';
-import type { PrivateKey } from './PrivateKey.ts';
 import type { InspectFn } from './inspect.ts';
 
 export class Transaction {
@@ -54,8 +58,8 @@ export class Transaction {
     ]);
   }
 
-  sign(privateKey: PrivateKey): SignedTransaction {
-    const { r, s, recovery: v } = privateKey.sign(keccak256(this.serialize()));
+  async sign(signer: Signer): Promise<SignedTransaction> {
+    const { r, s, recovery: v } = await signDigest({ signer, digest: keccak256(this.serialize()) });
     return new SignedTransaction({ ...this, v, r, s });
   }
 
