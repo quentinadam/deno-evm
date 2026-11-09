@@ -10,6 +10,6 @@ export { MethodSignatureRegistry } from '@quentinadam/evm-base';
 export { normalizeAddress } from './normalizeAddress.ts';
 export { PrivateKey } from './PrivateKey.ts';
 export { PublicKey } from './PublicKey.ts';
-export type { Signer } from '@quentinadam/evm-base';
+export type { Block, Log, Signer, TransactionReceipt } from '@quentinadam/evm-base';
 export { SignedTransaction } from './SignedTransaction.ts';
 export { Transaction } from './Transaction.ts';
