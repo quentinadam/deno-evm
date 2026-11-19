@@ -55,8 +55,11 @@ export class Client extends BaseClient {
     return this.#helper.HashSchema.parse(result);
   }
 
-  async getTransactionCount(address: string): Promise<number> {
-    const result = await this.request({ method: 'eth_getTransactionCount', params: [address, 'pending'] });
+  async getTransactionCount(address: string, blockNumber: number | 'latest' | 'pending' = 'pending'): Promise<number> {
+    const result = await this.request({
+      method: 'eth_getTransactionCount',
+      params: [address, typeof blockNumber === 'number' ? this.#helper.serializeInteger(blockNumber) : blockNumber],
+    });
     return this.#helper.HexNumberSchema.parse(result);
   }
 }
