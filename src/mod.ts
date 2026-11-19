@@ -2,6 +2,7 @@ export { ABI } from './ABI.ts';
 export { addressFromBytes } from './addressFromBytes.ts';
 export { bytesFromAddress } from './bytesFromAddress.ts';
 export { Client } from './Client.ts';
+export { ClientError } from '@quentinadam/evm-base';
 export { computeCREATEAddress } from './computeCREATEAddress.ts';
 export { computeCREATE2Address } from './computeCREATE2Address.ts';
 export { DataEncoder } from './DataEncoder.ts';
